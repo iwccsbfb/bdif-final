@@ -6,7 +6,7 @@ int main(int argc, char *argv[]) {
 
   int myid,nprocs;
 
-  long int npts = 1e10;
+  long int npts = 1e9;
 
   long int i,mynpts;
 
@@ -30,9 +30,10 @@ int main(int argc, char *argv[]) {
   srand(myid);
 
   for (i=0; i<mynpts; i++) {
+
     x = (double) rand()/RAND_MAX*(xmax-xmin) + xmin;
-    mysum += 4.0/(1.0 + x*x*x);
-  }
+    mysum += 4.0/(1.0 + x*x);    
+}
 
   MPI_Reduce(&mysum,&sum,1,MPI_DOUBLE,MPI_SUM,0,MPI_COMM_WORLD);
   
