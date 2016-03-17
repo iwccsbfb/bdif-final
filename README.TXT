@@ -29,8 +29,13 @@ change the space before the thrid line and sixth line to a tab
 mpi.pbs:
 mpirun -np 8 -machinefile $PBS_NODEFILE ./mpi.exe 
 -->
-mpirun -np 8 ./mpi
+mpirun -np 8 ./mpi > result.txt
 	
 mpi.c:
   if (myid = 0) { --> if (myid == 0) {
-
+change PI formula to :
+	mysum += 4.0/(1.0 + x*x); 
+change:
+  long int npts = 1e10;
+-->
+  long int npts = 1e9;
