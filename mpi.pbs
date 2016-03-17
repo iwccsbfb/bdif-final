@@ -5,15 +5,15 @@
 #PBS -l place=free
 #PBS -V
 
-echo -n ">>>> PBS Master compute node is: "
-hostname
-echo ""
+#echo -n ">>>> PBS Master compute node is: "
+#hostname
+#echo ""
 
 cd $PBS_O_WORKDIR
 
-echo ">>>> PBS Assigned these nodes to your job: "
-echo ""
-cat $PBS_NODEFILE
-echo ""i
+#echo ">>>> PBS Assigned these nodes to your job: "
+#echo ""
+#cat $PBS_NODEFILE
+#echo ""i
 
-mpi run -np 8 ./mpi
+mpirun -np 8 ./mpi
